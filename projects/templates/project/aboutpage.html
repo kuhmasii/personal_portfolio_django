@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ me.user.username }}{% endblock %}
+
+{% block content %}
+
+<div class="container my-5 py-5 z-depth-1">
+
+    <!--Section: Content-->
+    <section class="dark-grey-text text-center" style="background-color: rgb(58, 53, 53);">
+        <div class="container">
+            <h3 class="font-weight-bold pt-4 mb-4 orange-text">{{ me.user.username }}</h3>
+
+            <h5 class="font-weight-bold font-italic mb-5">{{ me.about_me }}.</h5>
+
+            <div class="row mx-lg-5 mx-md-3">
+                <div class="col-md-6 mb-4">
+
+                    <div class="view mb-5">
+                        <img src="{{ me.profileURL }}" class="img-fluid rounded-circle" alt="{{ me.user.username }}">
+                    </div>
+
+                    <h5 class="font-weight-normal text-muted">{{ me.about_me }}.</h5>
+
+                </div>
+                <div class="col-md-6 mb-4">
+
+                    <div class="view mb-5">
+                        <img src="https://mdbootstrap.com/img/illustrations/undraw_basketball_agx4.png"
+                            class="img-fluid" alt="bball">
+                    </div>
+
+                    <h5 class="font-weight-normal text-muted">Ut enim ad minim veniam, quis nostrud ut aliquip ex ea
+                        commodo
+                        consequat.</h5>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Section: Content-->
+</div>
+
+{% endblock %}

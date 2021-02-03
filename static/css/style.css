@@ -1,0 +1,62 @@
+
+body{
+    background-color: rgb(0, 0, 0);
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: normal;
+}
+h1{
+    font-style: italic;
+    font-weight: bold;
+    font-size: 200%;
+} 
+
+h4{
+    font-size: 150%;
+    font-style: normal;
+    font-weight: bolder;
+}
+
+h5{
+    color: ivory;
+    font-weight: lighter;
+}
+
+p{
+    color:#1787cc;
+}
+
+#navbarSupportedContent a:hover{
+    color: #5985a3;
+}
+
+/* color of the links before scroll */
+.navbar-scroll .nav-link,
+.navbar-scroll .navbar-toggler-icon {
+    color: #fff;
+}
+
+/* color of the links after scroll */
+.navbar-scrolled .nav-link,
+.navbar-scrolled .navbar-toggler-icon {
+    color: #4f4f4f;
+}
+
+/* color of the navbar after scroll */
+.navbar-scrolled {
+    background-color: #fff;
+}
+
+/* an optional heigth of the navbar after scroll */
+.navbar.navbar-scroll.navbar-scrolled {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#contact{
+    background-color:  #114362;
+}
+
+
+   

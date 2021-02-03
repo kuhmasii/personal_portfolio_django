@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %} Projects {% endblock %}
+
+{% block content %}
+<h1 class="text-center green-text wow lightSpeedIn m-5" data-wow-delay="0.5s" data-wow-duration='3s'>My projects</h1>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for project in projects %}
+    <div class="col">
+        <div class="card view overlay zoom">
+            <a href="{{ project.url }}"><img src="{{ project.ImageURL }}" class="card-img-top wow zoomInLeft"
+                    data-wow-delay="0.4s" data-wow-duration='4s' alt="{{ project.title }}" /></a>
+            <div class="card-body">
+                <br>
+                <h3 class="card-title font-weight-bold cyan-text text-center">{{ project.title }}</h3>
+                <hr>
+                <p class="card-text">
+                <h5 class="indigo-text">{{ project.description }}</h5>
+                </p>
+                <p class="amber-text"><i class="fas fa-code"></i> : <span class="text-primary">
+                        {{ project.software_used }}</span>
+                </p>
+                <div class="card-footer">
+                    <small class="text-muted">Date created {{ project.updated|date:"D, j F Y" }}.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<hr>
+{% include 'project/_paginator.html' with page=project %}
+{% endblock %}

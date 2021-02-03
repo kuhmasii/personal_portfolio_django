@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}update-page{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+<p><h2 class="text-center text-primary">Welcome to your Dashboard, {{request.user.username|upper}}🤩😁</h2></p>
+    <br>
+    <hr>
+    <h2 class="text-success text-center m-4">Update form</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+    <hr>
+</div>
+{% endblock %}

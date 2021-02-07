@@ -5,8 +5,9 @@
 {% block title %} Projects {% endblock %}
 
 {% block content %}
-<h1 class="text-center green-text wow lightSpeedIn m-5" data-wow-delay="0.5s" data-wow-duration='3s'>My projects</h1>
 
+<h1 class="text-center green-text wow lightSpeedIn m-5" data-wow-delay="0.5s" data-wow-duration='3s'>My projects
+</h1>
 <div class="row row-cols-1 row-cols-md-2 g-4">
     {% for project in projects %}
     <div class="col">
@@ -24,7 +25,7 @@
                         {{ project.software_used }}</span>
                 </p>
                 <div class="card-footer">
-                    <small class="text-muted">Date created {{ project.updated|date:"D, j F Y" }}.</small>
+                    <small class="text-muted">Date created {{ project.created|date:"D, j F Y" }}.</small>
                 </div>
             </div>
         </div>

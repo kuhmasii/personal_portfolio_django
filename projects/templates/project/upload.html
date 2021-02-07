@@ -4,7 +4,7 @@
 {% block title %}upload-page{% endblock %}
 
 {% block content %}
-<div class="jumbotron">
+<div class="container my-5 py-5 z-depth-1">
     <p>
     <h2 class="text-center text-primary">Welcome to your Dashboard, {{user.username|upper}}🤩😁</h2>
     </p>
@@ -12,11 +12,35 @@
     <hr>
     <h2 class="text-success text-center m-4">Fill in the right Info to upload form</h2>
     <form method="POST" enctype="multipart/form-data">
-    	{% csrf_token %}
-    	{{ form.as_p }}
-    	<button type="submit" class="btn btn-success">Submit</button>
+        {% csrf_token %}
+        <div class="md-form form-l">
+            <input type="text" id="id_title" name='title' class="form-control form-control-lg">
+            <label for="id_title">Title</label>
+        </div>
+        <div class="md-form amber-textarea active-amber-textarea-2">
+            <i class="fas fa-pencil-alt prefix"></i>
+            <textarea id="id_description" name="description" class="md-textarea form-control" rows="3"></textarea>
+            <label for="id_description">Description</label>
+        </div>
+        <div class="input-group md-form form-sm form-1 pl-">
+            <div class="input-group-prepend">
+                <span class="input-group-text cyan lighten-2" id="basic-text1"><i class="fas fa-search text-white"
+                        aria-hidden="true"></i></span>
+            </div>
+            <input class="form-control my-0 py-1" type="text" placeholder="URL" aria-label="URL" name="url">
+        </div>
+        <div class="file-field">
+            <div class="btn btn-pink btn-rounded btn-sm">
+                <span><i class="fas fa-upload mr-2" aria-hidden="true"></i>Upload picture</span>
+                <input type="file" name="project_image">
+            </div>
+        </div>
+        <div class="md-form form-l">
+            <input type="text" id="id_software_used" name='software_used' class="form-control form-control-lg">
+            <label for="id_software_used">Software Used</label>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
     </form>
     <hr>
 </div>
 {% endblock %}
-

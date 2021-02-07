@@ -2,8 +2,7 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
-from django.core.mail import send_mail, get_connection
-from django.conf import settings
+from django.core.mail import send_mail
 from .models import Me, Project
 from . import forms
 
@@ -12,17 +11,17 @@ def home_page(request):
     me = Me.objects.get()
     proj = Project.objects.all()[0]
     pro = Project.objects.all()[1:3]
-    return render(request, 'project/homepage.html', dict(pro=pro, proj=proj, me=me))
+    return render(request, 'project/homepage.html', dict(pro=pro, proj=proj, me=me, section="home_page"))
 
 
 def about_me(request):
     me = Me.objects.get()
-    return render(request, "project/aboutpage.html", dict(me=me))
+    return render(request, "project/aboutpage.html", dict(me=me, section="about_me"))
 
 
 def project(request):
     projects = Project.objects.all()
-    paginator = Paginator(object_list=projects, per_page=2)
+    paginator = Paginator(projects, 3)
     page = request.GET.get("page")
 
     try:
@@ -46,16 +45,15 @@ def contact(request):
             name = request.POST.get("name")
             subject = request.POST.get("subject")
             message = request.POST.get("message")
+            message = name + " said, " + message
 
             if not email.endswith("com"):
                 error = "Email should end with '.com,' please."
                 return render(request, 'project/homepage.html', {'error': error, 'name': name})
 
-            con = get_connection(settings.EMAIL_BACKEND)
-
             send_mail(subject=subject, message=message,
                       from_email=email,
-                      recipient_list=['olaisaiah54@gmail.com'], connection=con)
+                      recipient_list=['olaisaiah54@gmail.com'], fail_silently=False)
 
             return redirect('/contact?submitted=True')
 
@@ -137,7 +135,7 @@ def update(request):
         else:
             update_form = forms.UserUpdateForm(instance=info)
 
-        return render(request, 'project/updatepage.html', dict(form=update_form))
+        return render(request, 'project/updatepage.html', dict(form=update_form, info=info))
 
     except ValueError:
         return render(request, 'project/login.html', {'error': "Bad request"})

@@ -4,14 +4,40 @@
 {% block title %}update-page{% endblock %}
 
 {% block content %}
-<div class="jumbotron">
-<p><h2 class="text-center text-primary">Welcome to your Dashboard, {{request.user.username|upper}}🤩😁</h2></p>
+<div class="container my-5 py-5 z-depth-1">
+    <h2 class="text-center text-primary">Welcome to your Dashboard, {{request.user.username|upper}}🤩😁</h2>
     <br>
     <hr>
     <h2 class="text-success text-center m-4">Update form</h2>
-    <form method="POST" enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data" class="md-form">
+        <div class="file-field">
+            <div class="mb-4">
+                <img src="{{ info.profileURL }}" class="rounded-circle z-depth-1-half avatar-pic"
+                    alt="{{ info.username }}" style="width: 150px;">
+            </div>
+            <div class="d-flex">
+                <div class="btn btn-mdb-color btn-rounded">
+                    <span>Add photo</span>
+                    <input type="file" name="profile_pic">
+                </div>
+            </div>
+        </div>
+        <div class="file-field medium">
+            <div class="btn btn-rounded aqua-gradient">
+                <span>Add background pic</span>
+                <input type="file" name="background_pic">
+            </div>
+            <div class="file-path-wrapper">
+                <input name="background_pic" class="file-path validate" type="text" placeholder="background pic">
+            </div>
+        </div>
+        <!--Textarea with icon prefix-->
+        <div class="md-form amber-textarea active-amber-textarea-2">
+            <i class="fas fa-pencil-alt prefix"></i>
+            <textarea id="form24" name="about_me" class="md-textarea form-control" rows="3"></textarea>
+            <label for="form24">Who is Isaiah Olaoye?</label>
+        </div>
         {% csrf_token %}
-        {{ form.as_p }}
         <button type="submit" class="btn btn-success">Submit</button>
     </form>
     <hr>

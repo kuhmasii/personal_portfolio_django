@@ -2,7 +2,8 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
-from django.core.mail import send_mail
+from django.core.mail import send_mail, get_connection
+from django.conf import settings
 from .models import Me, Project
 from . import forms
 
@@ -21,20 +22,20 @@ def about_me(request):
 
 def project(request):
     projects = Project.objects.all()
-    paginator = Paginator(projects, 3)
+    paginator = Paginator(projects, 4)
     page = request.GET.get("page")
 
     try:
-        project = paginator.page(page)
+        projects = paginator.page(page)
+        # Trying to pick out the number of query(projects) per page
     except PageNotAnInteger:
         # if the page is not an integer deliver first page
-        project = paginator.page(1)
+        projects = paginator.page(1)
     except EmptyPage:
         # if page is out of range deliver the last page of the results.
-        project = paginator.page(paginator.num_pages)
-
+        projects = paginator.page(paginator.num_pages)
     return render(request, 'project/projectpage.html',
-                  dict(projects=projects, project=project, page=page))
+                  dict(projects=projects, page=page))
 
 
 def contact(request):
@@ -53,8 +54,10 @@ def contact(request):
 
             send_mail(subject=subject, message=message,
                       from_email=email,
-                      recipient_list=['olaisaiah54@gmail.com'], fail_silently=False)
-
+                      recipient_list=[settings.EMAIL_HOST_USER],
+                      fail_silently=False
+                      )
+            print(email)
             return redirect('/contact?submitted=True')
 
         else:

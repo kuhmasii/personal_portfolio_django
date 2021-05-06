@@ -6,14 +6,16 @@
 
 {% block content %}
 
-<h1 class="text-center green-text wow lightSpeedIn my-4" data-wow-delay="0.5s" data-wow-duration='3s'>My projects
+
+    <h1 class="text-center green-text wow lightSpeedIn my-4" data-wow-delay="0.5s" data-wow-duration='3s'>My projects
 </h1>
+
 <div class="row row-cols-1 row-cols-md-2 g-4">
     {% for pro in projects %}
     <div class="col">
         <div class="card view overlay zoom">
             <a href="{{ pro.url }}"><img src="{{ pro.ImageURL }}" class="card-img-top wow zoomInLeft"
-                    data-wow-delay="0.4s" data-wow-duration='4s' alt="{{ pro.title }}" /></a>
+                    data-wow-delay="0.4s" data-wow-duration='4s' alt="{{ pro.title }}" height="550"/></a>
             <div class="card-body">
                 <br>
                 <h3 class="card-title font-weight-bold cyan-text text-center">{{ pro.title }}</h3>
@@ -34,4 +36,5 @@
 </div>
 <hr>
 {% include '_paginator.html' with page=projects %}
+</div>
 {% endblock %}

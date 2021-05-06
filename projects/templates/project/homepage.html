@@ -20,7 +20,8 @@
   <!-- online iinks -->
 
   <!-- manual links -->
-  <!-- Font Awesome -->
+    <!--logo link-->
+  <link rel="icon" href="{% static 'image/kuhmasii logo.jpg' %}" type="image/x-icon">
 
   <!-- Google Fonts Roboto -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
@@ -71,30 +72,25 @@
           <!-- resume links -->
           <ul class="navbar-nav d-flex flex-row">
             <li>
-              <a href="#" class="btn btn-info m-1" role="button">Resume</a>
+                <a href="{% static 'image/IsaiahOlaoye.PDF' %}" class="btn btn-info btn-sm m-1" role="button">Resume</a>
             </li>
             {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="smooth-scroll nav-link green-text m-1" href="{% url 'projects:account' %}">Account</a>
+              <a class="smooth-scroll nav-link m-1" href="{% url 'projects:account' %}">Account</a>
             </li>
             {% else %}
             <li class="nav-item">
-              <a class="smooth-scroll nav-link green-text m-1" href="{% url 'projects:account' %}">Dashboard</a>
+              <a class="smooth-scroll nav-link m-1" href="{% url 'projects:account' %}">Dashboard</a>
             </li>
             {% endif %}
-            <li class="nav-item me-3 me-lg-0 m-1 ">
-              <a class="nav-link" style="color: #0082ca" href="https://www.linkedin.com/in/isaiah-olaoye-2848551b2/"
-                role="button">
-                <i class="fab fa-linkedin-in fa-lg"></i>
-              </a>
-            </li>
+
             {% if user.is_authenticated %}
             <li>
-              <a href="{% url 'projects:user_logout' %}" class="btn btn-danger m-1" role="button">Logout</a>
+              <a href="{% url 'projects:user_logout' %}" class="btn btn-red btn-sm m-1 font-larger" role="button">Logout</a>
             </li>
             {% else %}
             <li>
-              <a href="{% url 'projects:user_login' %}" class="btn btn-success m-1" role="button">Login</a>
+              <a href="{% url 'projects:user_login' %}" class="btn btn-green btn-sm m-1 font-larger" role="button">Login</a>
             </li>
             {% endif %}
           </ul>
@@ -105,7 +101,7 @@
     </nav>
     <!-- Navbar -->
     <!-- background image -->
-    <div class="p-5 text-center bg-image shadow-3-strong" style="
+        <div class="p-5 text-center bg-image shadow-3-strong" style="
         background-image: url('{{ me.backgroundURL }}');
         height: 100vh;
         ">
@@ -113,10 +109,10 @@
         <div class="d-flex justify-content-center align-items-center h-100">
           <div class="text-white">
             <h1 class="wow bounceInUp my-5 orange-text" data-wow-delay="0.5s" data-wow-duration='4s'
-              data-wow-iteration='5'>
+              data-wow-iteration='1'>
               Isaiah Olaoye Oluwamayomikun
             </h1>
-            <h4 class="wow  bounceInLeft mb-3" data-wow-delay="1s" data-wow-duration='3s' data-wow-iteration='5'>Backend
+            <h4 class="wow  bounceInLeft mb-3" data-wow-delay="1s" data-wow-duration='3s' data-wow-iteration='1'>Backend
               <span class="text-info">Developer</span>
             </h4>
             <a class="smooth-scroll btn btn-lg btn-info m-1" href="#about" role="button">My
@@ -142,7 +138,7 @@
             <h5 class="my-4">Fast</h5>
             <p class="mb-md-3">
               With the help of django's framework,
-              blazing fast load time is my highest priority for my client.
+              building and developing projects in fast-paced enviroments is my highest priority for my client.
             </p>
 
           </div>
@@ -150,7 +146,7 @@
             <i class="fas fa-rocket fa-4x text-info wow zoomInUp" data-wow-delay="0.3s" data-wow-duration='5s'></i>
             <h5 class="my-4">Dynamic</h5>
             <p class="mb-md-3">
-              Website dosen't have to be boring, will give it a life.
+              Website dosen't have to be boring, will sparkle some life into it.
             </p>
           </div>
         </div>
@@ -216,7 +212,7 @@
           <div class="col-md-6 mb-4">
             <img src="{{ me.profileURL }}" alt="Isaiah Olaoye"
               class="rounded-circle shadow-2-strong img-fluid z-depth-1 mb-4 wow rollIn" data-wow-delay="0.5s"
-              data-wow-duration='4s' data-wow-iteration='2'>
+              data-wow-duration='4s' data-wow-iteration='1'>
             <a href="{% url 'projects:about_me' %}">
               <p><strong class="font-weight-bold amber-lighter-hover">{{ me.user.last_name }} says, Hi 😃😎</strong></p>
             </a>
@@ -234,6 +230,7 @@
             <!-- Github -->
             <a class="btn text-white" style="background-color: #333333" href="https://github.com/kuhmasii"
               role="button"><i class="fab fa-github"></i></a>
+            </li>
           </div>
         </div>
       </section>
@@ -257,7 +254,7 @@
                   <p class="pb-3 text-white">{{ proj.description }}</p>
                   <a class="btn btn-danger btn-rounded" href="{{ proj.url }}"><i class="far fa-clone left"></i> View
                     project</a>
-                  <a class="btn btn-info btn-rounded" href="#projectfeatures"><i class="far fa-clone left"></i> View
+                  <a class="btn btn-green btn-rounded" href="#projectfeatures"><i class="far fa-clone left"></i> View
                     project features</a>
                 </div>
               </div>
@@ -266,11 +263,11 @@
           <!--Grid column-->
           {% for project in pro %}
           <!--Grid column-->
-          <div class="col-md-6 mb-4 wow fadeInRightBig" data-wow-delay="0.4s" data-wow-duration='5s'>
+          <div class="col-md-6 mb-4">
             <div class="card card-image" style="background-image: url('{{ project.ImageURL }}');">
               <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
                 <div>
-                  <h5 class="orange-text"><i class="fas fa-file-code fa-2x text-success"></i> :
+                  <h5 class="orange-text"><i class="fas fa-file-code fa-2x green-text"></i> :
                     {{project.software_used}}</strong></h5>
 
                   <h3 class="card-title py-3 font-weight-bold"><strong>{{ project.title }}</strong>
@@ -278,7 +275,7 @@
                   <p class="pb-3 text-white">{{ project.description }}</p>
                   <a class="btn btn-danger btn-rounded" href="{{ project.url }}"><i class="far fa-clone left"></i> View
                     project</a>
-                  <a class="btn btn-info btn-rounded" href="#projectfeatures"><i class="far fa-clone left"></i> View
+                  <a class="btn btn-green btn-rounded" href="#projectfeatures"><i class="far fa-clone left"></i> View
                     project features</a>
                 </div>
               </div>
@@ -442,7 +439,7 @@
 
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2020 Copyright:
-      <a href="{% url 'admin:index' %}">olaoye's portfolio</a>
+      <a href="{% url 'admin:index' %}">kuhmasii.pythonanywhere.com</a>
     </div>
     <!-- Copyright -->
   </footer>

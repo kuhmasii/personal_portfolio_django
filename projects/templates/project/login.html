@@ -8,17 +8,16 @@ Login-page
 
 {% block content %}
 
-<div class="container my-3 py-5 z-depth-1">
     <!--Section: Content-->
-    <section class="p-5 my-md-5 text-center" style="background-color: rgb(224, 202, 202); 
+    <section class="my-5 p-5 text-center" style="background-color:#02121ff1;
         background-size: cover;">
 
         <form action="{% url 'projects:user_login' %}" method="POST" class="my-5 mx-md-5">
             {% csrf_token %}
             <div class="row d-flex justify-content-center">
-                <h2 class="green-text text-center">Sign in to post</h2>
+                <h2 class="green-text text-center">Sign in to post your Project</h2>
                 <div class="col-md-6">
-                    <h5 class="text-danger">{{error}}</h5>
+                    <h5 class="red-text">{{error}}</h5>
                     <!-- Username -->
                     <div class="form-outline mb-4">
                         <input type="text" name="username" id="id_username" class="form-control" required
@@ -34,17 +33,16 @@ Login-page
                     <br>
                     <div class="text-center">
                         <!-- Simple link -->
-                        <a href="#!">Forgot password?</a>
+                        <a class="text-info" href="#!">Forgot password?</a>
                     </div>
                     <hr>
                     <br>
                     <!-- Submit button -->
-                    <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+                    <button type="submit" class="btn btn-green btn-block mb-4">Sign in</button>
                 </div>
             </div>
         </form>
     </section>
     <!-- section content -->
-</div>
 
 {% endblock %}

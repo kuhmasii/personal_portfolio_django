@@ -57,7 +57,6 @@ def contact(request):
                       recipient_list=[settings.EMAIL_HOST_USER],
                       fail_silently=False
                       )
-            print(email)
             return redirect('/contact?submitted=True')
 
         else:
@@ -66,7 +65,7 @@ def contact(request):
             return render(request, 'project/homepage.html', {'submitted': submitted})
 
     except ValueError:
-        return render(request, 'project/homepage.html', {'error': "Bad request"})
+        return render(request, 'project/homepage.html', {'error': "Check your email address please"})
 
 
 def user_login(request):

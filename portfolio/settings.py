@@ -19,12 +19,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ino6e!(m)#79mi4k!)#q(00h+(r!l!u+pss8=&*$i24ve--mip'
+SECRET_KEY = '%ohs$vmtkqu+0yvk=y#3(wg2r^be9qfb-%w4a4_*z&!)0v#tgn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['kuhmasii.pythonanywhere.com']
 
 
 # Application definition
@@ -77,8 +77,11 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR / 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': "kuhmasii$portfolio_db",
+        'USER': "kuhmasii",
+        'PASSWORD': "mummy1234",
+        'HOST': "kuhmasii.mysql.pythonanywhere-services.com",
     }
 }
 
@@ -121,9 +124,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static")
-]
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 MEDIA_URL = '/media/'
 
@@ -139,6 +140,6 @@ LOGIN_URL = "/login/"
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'olaisaiah54@gmail.com'
-EMAIL_HOST_PASSWORD = 'mummy1234'
+EMAIL_HOST_PASSWORD = 'akrpodsvohxpenac'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True

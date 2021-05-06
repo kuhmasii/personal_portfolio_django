@@ -20,7 +20,7 @@
   <!-- online iinks -->
 
   <!-- manual links -->
-    <!--logo link-->
+  <!--logo link-->
   <link rel="icon" href="{% static 'image/kuhmasii logo.jpg' %}" type="image/x-icon">
 
   <!-- Google Fonts Roboto -->
@@ -72,7 +72,7 @@
           <!-- resume links -->
           <ul class="navbar-nav d-flex flex-row">
             <li>
-                <a href="{% static 'image/IsaiahOlaoye.PDF' %}" class="btn btn-info btn-sm m-1" role="button">Resume</a>
+              <a href="{% static 'image/IsaiahOlaoye.PDF' %}" class="btn btn-info btn-sm m-1" role="button">Resume</a>
             </li>
             {% if user.is_authenticated %}
             <li class="nav-item">
@@ -86,11 +86,13 @@
 
             {% if user.is_authenticated %}
             <li>
-              <a href="{% url 'projects:user_logout' %}" class="btn btn-red btn-sm m-1 font-larger" role="button">Logout</a>
+              <a href="{% url 'projects:user_logout' %}" class="btn btn-red btn-sm m-1 font-larger"
+                role="button">Logout</a>
             </li>
             {% else %}
             <li>
-              <a href="{% url 'projects:user_login' %}" class="btn btn-green btn-sm m-1 font-larger" role="button">Login</a>
+              <a href="{% url 'projects:user_login' %}" class="btn btn-green btn-sm m-1 font-larger"
+                role="button">Login</a>
             </li>
             {% endif %}
           </ul>
@@ -101,7 +103,7 @@
     </nav>
     <!-- Navbar -->
     <!-- background image -->
-        <div class="p-5 text-center bg-image shadow-3-strong" style="
+    <div class="p-5 text-center bg-image shadow-3-strong" style="
         background-image: url('{{ me.backgroundURL }}');
         height: 100vh;
         ">

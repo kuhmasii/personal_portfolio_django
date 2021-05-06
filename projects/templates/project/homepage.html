@@ -244,42 +244,23 @@
           <strong>My Projects</strong>
         </h5>
         <div class="row">
+          {% for proj in proj %}
           <!--Grid column-->
-          <div class="col-md-12 mb-4 wow fadeInUpBig" data-wow-delay="0.3s" data-wow-duration='3s'>
-            <div class="card card-image" style="background-image: url('{{ proj.ImageURL }}');">
-              <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
-                <div>
-                  <h5 class="orange-text"><i class="fas fa-file-code fa-2x text-success"></i> :
-                    {{ proj.software_used }}</strong></h5>
-                  <h2 class="card-title py-3 font-weight-bold"><strong>{{ proj.title }}</strong>
-                  </h2>
+          <div class="col-md-6 mb-4">
+            <div class="card">
+              <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                <img src="{{ proj.ImageURL }}" class="img-fluid" />
+                <a href="href=" {{ proj.url }}"">
+                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                </a>
+              </div>
+              <div class="card-body">
+                <h2 class="card-title py-3 font-weight-bold"><strong>{{ proj.title }}</strong>
                   <p class="pb-3 text-white">{{ proj.description }}</p>
                   <a class="btn btn-danger btn-rounded" href="{{ proj.url }}"><i class="far fa-clone left"></i> View
                     project</a>
                   <a class="btn btn-green btn-rounded" href="#projectfeatures"><i class="far fa-clone left"></i> View
                     project features</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--Grid column-->
-          {% for project in pro %}
-          <!--Grid column-->
-          <div class="col-md-6 mb-4">
-            <div class="card card-image" style="background-image: url('{{ project.ImageURL }}');">
-              <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
-                <div>
-                  <h5 class="orange-text"><i class="fas fa-file-code fa-2x green-text"></i> :
-                    {{project.software_used}}</strong></h5>
-
-                  <h3 class="card-title py-3 font-weight-bold"><strong>{{ project.title }}</strong>
-                  </h3>
-                  <p class="pb-3 text-white">{{ project.description }}</p>
-                  <a class="btn btn-danger btn-rounded" href="{{ project.url }}"><i class="far fa-clone left"></i> View
-                    project</a>
-                  <a class="btn btn-green btn-rounded" href="#projectfeatures"><i class="far fa-clone left"></i> View
-                    project features</a>
-                </div>
               </div>
             </div>
           </div>
@@ -297,11 +278,11 @@
       <div class="row d-flex justify-content-center">
         <div class="col-lg-5">
           {% if submitted %}
-          <p class="text-warning">Your email was successfully sent, Thanks for contacting me.</p>
+          <h3 class="green-text">{{ name }}</h3>
+          <p class="text-warning">Your email was successfully sent.Thanks for contacting me.</p>
 
           {% else %}
           <form action="{% url 'projects:contact' %}" method="POST">
-            <p class="text-info">{{ name }} {{ error }}</p>
             <!-- Name input -->
             <div class="form-outline mb-4">
               <input type="text" name="name" id="form4Example1" class="form-control" />
@@ -344,11 +325,12 @@
         <div class="row">
           <!-- Grid column -->
           <div class="col-md-12 mb-3 wow fadeInLeftBig" data-wow-delay="0.5s" data-wow-duration='5s'>
-            <img src=" https://mdbootstrap.com/img/Photos/Slides/img%20(137).jpg" class="img-fluid z-depth-1"
-              alt="Responsive image">
+            <video autoplay height="400">
+              <source src="‪{% static 'videos/31479400-preview.mp4' %}" type="video/mp4">
+              The views of my project features.
+            </video>
           </div>
           <!-- Grid column -->
-
         </div>
         <!-- Grid row -->
 
@@ -358,8 +340,7 @@
           <!-- Grid column -->
           <div class="col-lg-4 col-md-12 mb-3  wow lightSpeedIn" data-wow-delay="0.5s" data-wow-duration='3s'>
 
-            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img(115).jpg"
-              class="img-fluid z-depth-1" alt="Responsive image">
+            <img src="{% static 'image/' %}" class="img-fluid z-depth-1" alt="Project features">
 
           </div>
           <!-- Grid column -->
@@ -367,8 +348,7 @@
           <!-- Grid column -->
           <div class="col-lg-4 col-md-6 mb-3 wow zoomInRight" data-wow-delay="0.4s" data-wow-duration='4s'>
 
-            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img(116).jpg"
-              class="img-fluid z-depth-1" alt="Responsive image">
+            <img src="{% static 'image/' %}" class="img-fluid z-depth-1" alt="Project features">
 
           </div>
           <!-- Grid column -->
@@ -376,8 +356,7 @@
           <!-- Grid column -->
           <div class="col-lg-4 col-md-6 mb-3 wow zoomInLeft" data-wow-delay="0.4s" data-wow-duration='4s'>
 
-            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img(117).jpg"
-              class="img-fluid z-depth-1" alt="Responsive image">
+            <img src="{% static 'image/' %}" class="img-fluid z-depth-1" alt="Project features">
 
           </div>
           <!-- Grid column -->
@@ -391,8 +370,7 @@
           <!-- Grid column -->
           <div class="col-md-6 mb-3 wow zoomInDown" data-wow-delay="0.3s" data-wow-duration='5s'>
 
-            <img src="https://mdbootstrap.com/img/Photos/Horizontal/People/6-col/img(117).jpg"
-              class="img-fluid z-depth-1" alt="Responsive image">
+            <img src="{% static 'image/' %}" class="img-fluid z-depth-1" alt="Project features">
 
           </div>
           <!-- Grid column -->
@@ -400,8 +378,7 @@
           <!-- Grid column -->
           <div class="col-md-6 mb- wow zoomInUp" data-wow-delay="0.4s" data-wow-duration='3s'>
 
-            <img src="https://mdbootstrap.com/img/Photos/Horizontal/People/6-col/img(129).jpg"
-              class="img-fluid z-depth-1" alt="Responsive image">
+            <img src="{% static 'image/' %}" class="img-fluid z-depth-1" alt="Project features">
 
           </div>
           <!-- Grid column -->

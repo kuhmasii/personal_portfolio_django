@@ -72,7 +72,7 @@
           <!-- resume links -->
           <ul class="navbar-nav d-flex flex-row">
             <li>
-                <a href="{% static 'image/IsaiahOlaoye.pdf' %}" class="btn btn-info btn-sm m-1" role="button">Resume</a>
+              <a href="{% static 'image/IsaiahOlaoye.pdf' %}" class="btn btn-info btn-sm m-1" role="button">Resume</a>
             </li>
             {% if user.is_authenticated %}
             <li class="nav-item">
@@ -249,14 +249,14 @@
           <div class="col-md-6 mb-4">
             <div class="card">
               <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img src="{{ proj.ImageURL }}" height='400' class="card-img-top"/>
+                <img src="{{ proj.ImageURL }}" height='400' class="card-img-top" />
                 <a href="href=" {{ proj.url }}"">
                   <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
                 </a>
               </div>
               <div class="card-body">
                 <h2 class="card-title py-3 font-weight-bold"><strong>{{ proj.title }}</strong>
-                  <p class="lead" >{{ proj.description }}</p>
+                  <p class="lead">{{ proj.description }}</p>
                   <a class="btn btn-danger btn-rounded" href="{{ proj.url }}"><i class="far fa-clone left"></i> View
                     project</a>
                   <a class="btn btn-green btn-rounded" href="#projectfeatures"><i class="far fa-clone left"></i> View
@@ -324,12 +324,9 @@
         <!-- Grid row -->
         <div class="row">
           <!-- Grid column -->
-          <div class="col-md-12 mb-3 wow fadeInLeftBig" data-wow-delay="0.5s" data-wow-duration='5s'>
-            <video controls height="400">
-              <source src="‪{% static 'videos/preview.mp4' %}" type="video/mp4">
-              The views of my project features.
-            </video>
-          </div>
+          <video controls height="400">
+            <source src="{% static 'videos/preview.mp4' %}" type="video/mp4">
+          </video>
           <!-- Grid column -->
         </div>
         <!-- Grid row -->

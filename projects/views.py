@@ -10,9 +10,8 @@ from . import forms
 
 def home_page(request):
     me = Me.objects.get()
-    proj = Project.objects.all()[0]
-    pro = Project.objects.all()[1:3]
-    return render(request, 'project/homepage.html', dict(pro=pro, proj=proj, me=me, section="home_page"))
+    proj = Project.objects.all()[:4]
+    return render(request, 'project/homepage.html', dict(proj=proj, me=me, section="home_page"))
 
 
 def about_me(request):
@@ -48,24 +47,17 @@ def contact(request):
             message = request.POST.get("message")
             message = name + " said, " + message
 
-            if not email.endswith("com"):
-                error = "Email should end with '.com,' please."
-                return render(request, 'project/homepage.html', {'error': error, 'name': name})
-
             send_mail(subject=subject, message=message,
                       from_email=email,
                       recipient_list=[settings.EMAIL_HOST_USER],
                       fail_silently=False
                       )
-            return redirect('/contact?submitted=True')
+            submitted = True
 
-        else:
-            if "submitted" in request.GET:
-                submitted = True
-            return render(request, 'project/homepage.html', {'submitted': submitted})
+            return render(request, 'project/homepage.html', {'submitted': submitted, "name": name})
 
     except ValueError:
-        return render(request, 'project/homepage.html', {'error': "Check your email address please"})
+        return render(request, 'project/homepage.html', {'submitted': submitted})
 
 
 def user_login(request):

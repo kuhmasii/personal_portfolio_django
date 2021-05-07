@@ -4,43 +4,43 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title> {% block title %}{% endblock %}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title> {% block title %}{% endblock %}</title>
 
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    <!-- MDB -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.0.0/mdb.min.css" rel="stylesheet" />
-    <!-- MDB -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.0.0/mdb.min.js"></script>
-    <!-- online iinks -->
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+  <!-- MDB -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.0.0/mdb.min.css" rel="stylesheet" />
+  <!-- MDB -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.0.0/mdb.min.js"></script>
+  <!-- online iinks -->
 
-    <!-- manual links -->
-    <!-- Font Awesome -->
+  <!-- manual links -->
+  <!-- Font Awesome -->
 
-    <!--logo link-->
-    <link rel="icon" href="{% static 'image/kuhmasii logo.jpg' %}" type="image/x-icon">
+  <!--logo link-->
+  <link rel="icon" href="{% static 'image/kuhmasii logo.jpg' %}" type="image/x-icon">
 
-    <!-- Google Fonts Roboto -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="">
-    <!-- Material Design Bootstrap -->
-    <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
-    <!-- Your custom styles (optional) -->
-    <!-- Custom styles -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
+  <!-- Your custom styles (optional) -->
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 </head>
 
 <body>
-    <header>
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg fixed-top navbar-scroll">
+  <header>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-scroll">
       <!-- Container wrapper -->
       <div class="container">
         <!-- Toggle button -->
@@ -74,7 +74,13 @@
           <!-- resume links -->
           <ul class="navbar-nav d-flex flex-row">
             <li>
+<<<<<<< HEAD
                 <a href="{% static 'image/IsaiahOlaoye.pdf' %}" class="btn btn-info btn-sm m-1" role="button">Resume</a>
+||||||| merged common ancestors
+                <a href="{% static 'image/IsaiahOlaoye.PDF' %}" class="btn btn-info btn-sm m-1" role="button">Resume</a>
+=======
+              <a href="{% static 'image/IsaiahOlaoye.PDF' %}" class="btn btn-info btn-sm m-1" role="button">Resume</a>
+>>>>>>> 67cae97a819695cca3734f131a6a9e6452411426
             </li>
             {% if user.is_authenticated %}
             <li class="nav-item">
@@ -88,11 +94,13 @@
 
             {% if user.is_authenticated %}
             <li>
-              <a href="{% url 'projects:user_logout' %}" class="btn btn-red btn-sm m-1 font-larger" role="button">Logout</a>
+              <a href="{% url 'projects:user_logout' %}" class="btn btn-red btn-sm m-1 font-larger"
+                role="button">Logout</a>
             </li>
             {% else %}
             <li>
-              <a href="{% url 'projects:user_login' %}" class="btn btn-green btn-sm m-1 font-larger" role="button">Login</a>
+              <a href="{% url 'projects:user_login' %}" class="btn btn-green btn-sm m-1 font-larger"
+                role="button">Login</a>
             </li>
             {% endif %}
           </ul>
@@ -101,67 +109,67 @@
       </div>
       <!-- Container wrapper -->
     </nav>
-        <!-- Navbar -->
-        <!-- background image -->
-    </header>
-    <main>
-        <div class="container py-5">
-            {% block content %}
-            {% endblock %}
-        </div>
-    </main>
-    <!-- Footer -->
-    <footer class="page-footer font-large special-color-dark pt-4">
+    <!-- Navbar -->
+    <!-- background image -->
+  </header>
+  <main>
+    <div class="container py-5">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </main>
+  <!-- Footer -->
+  <footer class="page-footer font-large special-color-dark pt-4">
 
-        <!-- Footer Elements -->
-        <div class="container">
+    <!-- Footer Elements -->
+    <div class="container">
 
-            <!-- Social buttons -->
-            <ul class="list-unstyled list-inline text-center">
-                <li class="list-inline-item">
-                    <a class="btn-floating btn-fb mx-1" href="https://www.facebook.com/isaiah.thunder.7/">
-                        <i class="fab fa-facebook-f blue-text"> </i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a class="btn-floating btn-tw mx-1" href="https://www.twitter.com/kuhmasii/">
-                        <i class="fab fa-twitter cyan-text"> </i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a class="btn-floating btn-li mx-1" href="https://www.linkedin.com/in/isaiah-olaoye-2848551b2/">
-                        <i class="fab fa-linkedin-in light-blue-text"> </i>
-                    </a>
-                </li>
-            </ul>
-            <!-- Social buttons -->
-        </div>
-        <!-- Footer Elements -->
+      <!-- Social buttons -->
+      <ul class="list-unstyled list-inline text-center">
+        <li class="list-inline-item">
+          <a class="btn-floating btn-fb mx-1" href="https://www.facebook.com/isaiah.thunder.7/">
+            <i class="fab fa-facebook-f blue-text"> </i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn-floating btn-tw mx-1" href="https://www.twitter.com/kuhmasii/">
+            <i class="fab fa-twitter cyan-text"> </i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn-floating btn-li mx-1" href="https://www.linkedin.com/in/isaiah-olaoye-2848551b2/">
+            <i class="fab fa-linkedin-in light-blue-text"> </i>
+          </a>
+        </li>
+      </ul>
+      <!-- Social buttons -->
+    </div>
+    <!-- Footer Elements -->
 
-        <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">© 2020 Copyright:
-            <a href="{% url 'admin:index' %}">kuhmasii.pythonanywhere.com</a>
-        </div>
-        <!-- Copyright -->
-    </footer>
-    <!-- Footer -->
-    <!-- End your project here-->
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a href="{% url 'admin:index' %}">kuhmasii.pythonanywhere.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+  <!-- End your project here-->
 
-    <!-- jQuery -->
-    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
-    <!-- MDB -->
-    <!-- Your custom scripts (optional) -->
-    <script type="text/javascript">
-        $(document).ready(function () {
-            new WOW().init();
-        });
-    </script>
+  <!-- jQuery -->
+  <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script> -->
+  <!-- MDB -->
+  <!-- Your custom scripts (optional) -->
+  <script type="text/javascript">
+    $(document).ready(function () {
+      new WOW().init();
+    });
+  </script>
 
 </body>
 

@@ -72,13 +72,7 @@
           <!-- resume links -->
           <ul class="navbar-nav d-flex flex-row">
             <li>
-<<<<<<< HEAD
                 <a href="{% static 'image/IsaiahOlaoye.pdf' %}" class="btn btn-info btn-sm m-1" role="button">Resume</a>
-||||||| merged common ancestors
-                <a href="{% static 'image/IsaiahOlaoye.PDF' %}" class="btn btn-info btn-sm m-1" role="button">Resume</a>
-=======
-              <a href="{% static 'image/IsaiahOlaoye.PDF' %}" class="btn btn-info btn-sm m-1" role="button">Resume</a>
->>>>>>> 67cae97a819695cca3734f131a6a9e6452411426
             </li>
             {% if user.is_authenticated %}
             <li class="nav-item">
@@ -255,14 +249,14 @@
           <div class="col-md-6 mb-4">
             <div class="card">
               <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img src="{{ proj.ImageURL }}" class="img-fluid" />
+                <img src="{{ proj.ImageURL }}" height='400' class="card-img-top"/>
                 <a href="href=" {{ proj.url }}"">
                   <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
                 </a>
               </div>
               <div class="card-body">
                 <h2 class="card-title py-3 font-weight-bold"><strong>{{ proj.title }}</strong>
-                  <p class="pb-3 text-white">{{ proj.description }}</p>
+                  <p class="lead" >{{ proj.description }}</p>
                   <a class="btn btn-danger btn-rounded" href="{{ proj.url }}"><i class="far fa-clone left"></i> View
                     project</a>
                   <a class="btn btn-green btn-rounded" href="#projectfeatures"><i class="far fa-clone left"></i> View
@@ -285,36 +279,36 @@
         <div class="col-lg-5">
           {% if submitted %}
           <h3 class="green-text">{{ name }}</h3>
-          <p class="text-warning">Your email was successfully sent.Thanks for contacting me.</p>
+          <p class="red-text">Your email was successfully sent.Thanks for contacting me.</p>
 
           {% else %}
           <form action="{% url 'projects:contact' %}" method="POST">
             <!-- Name input -->
             <div class="form-outline mb-4">
               <input type="text" name="name" id="form4Example1" class="form-control" />
-              <label class="form-label" for="form4Example1">Name</label>
+              <label class="form-label green-text" for="form4Example1">Name</label>
             </div>
 
             <!-- Email input -->
             <div class="form-outline mb-4">
               <input type="email" name="email_address" id="form4Example2" class="form-control"
                 placeholder="your@email.com" required />
-              <label class="form-label" for="form4Example2">Email address</label>
+              <label class="form-label green-text" for="form4Example2">Email address</label>
             </div>
 
             <!-- Subject input -->
             <div class="form-outline mb-4">
               <input type="text" name="subject" id="form4Example1" class="form-control" maxlength="100" />
-              <label class=" form-label" for="form4Example1">Subject</label>
+              <label class=" form-label green-text" for="form4Example1">Subject</label>
             </div>
 
             <!-- Message input -->
             <div class="form-outline mb-4">
               <textarea class="form-control" name="message" id="form4Example3" rows="10" required></textarea>
-              <label class="form-label" for="form4Example3">Message</label>
+              <label class="form-label green-text" for="form4Example3">Message</label>
             </div>
             <!-- Submit button -->
-            <button type="submit" class="btn btn-info mb-4">Send</button>
+            <button type="submit" class="btn btn-cyan mb-4">Send</button>
             {% csrf_token %}
           </form>
           {% endif %}
@@ -331,8 +325,8 @@
         <div class="row">
           <!-- Grid column -->
           <div class="col-md-12 mb-3 wow fadeInLeftBig" data-wow-delay="0.5s" data-wow-duration='5s'>
-            <video autoplay height="400">
-              <source src="‪{% static 'videos/31479400-preview.mp4' %}" type="video/mp4">
+            <video controls height="400">
+              <source src="‪{% static 'videos/preview.mp4' %}" type="video/mp4">
               The views of my project features.
             </video>
           </div>
@@ -346,7 +340,7 @@
           <!-- Grid column -->
           <div class="col-lg-4 col-md-12 mb-3  wow lightSpeedIn" data-wow-delay="0.5s" data-wow-duration='3s'>
 
-            <img src="{% static 'image/' %}" class="img-fluid z-depth-1" alt="Project features">
+            <img src="{% static 'image/image1.jpg' %}" class="img-fluid z-depth-1" alt="Project features">
 
           </div>
           <!-- Grid column -->
@@ -354,7 +348,7 @@
           <!-- Grid column -->
           <div class="col-lg-4 col-md-6 mb-3 wow zoomInRight" data-wow-delay="0.4s" data-wow-duration='4s'>
 
-            <img src="{% static 'image/' %}" class="img-fluid z-depth-1" alt="Project features">
+            <img src="{% static 'image/image2.jpg' %}" class="img-fluid z-depth-1" alt="Project features">
 
           </div>
           <!-- Grid column -->
@@ -362,7 +356,7 @@
           <!-- Grid column -->
           <div class="col-lg-4 col-md-6 mb-3 wow zoomInLeft" data-wow-delay="0.4s" data-wow-duration='4s'>
 
-            <img src="{% static 'image/' %}" class="img-fluid z-depth-1" alt="Project features">
+            <img src="{% static 'image/image1.jpg' %}" class="img-fluid z-depth-1" alt="Project features">
 
           </div>
           <!-- Grid column -->
@@ -376,7 +370,7 @@
           <!-- Grid column -->
           <div class="col-md-6 mb-3 wow zoomInDown" data-wow-delay="0.3s" data-wow-duration='5s'>
 
-            <img src="{% static 'image/' %}" class="img-fluid z-depth-1" alt="Project features">
+            <img src="{% static 'image/image2.jpg' %}" class="img-fluid z-depth-1" alt="Project features">
 
           </div>
           <!-- Grid column -->
@@ -384,7 +378,7 @@
           <!-- Grid column -->
           <div class="col-md-6 mb- wow zoomInUp" data-wow-delay="0.4s" data-wow-duration='3s'>
 
-            <img src="{% static 'image/' %}" class="img-fluid z-depth-1" alt="Project features">
+            <img src="{% static 'image/image1.jpg' %}" class="img-fluid z-depth-1" alt="Project features">
 
           </div>
           <!-- Grid column -->
